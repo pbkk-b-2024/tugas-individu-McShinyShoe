@@ -13,19 +13,21 @@ Route::fallback(function () {
     return response()->view('page.err.404', [], 404);
 });
 
-Route::get('/home', function () {
-    return view('page.home');
+Route::prefix('/home')->group(function() {
+    Route::get('/', function () {
+        return view('page.home');
+    });
+
+    Route::get('/even_odd', [EvenOddController::class, 'showForm'])->name('even_odd.form');
+    Route::post('/even_odd', [EvenOddController::class, 'calculate'])->name('even_odd');
+
+    Route::get('/fibonacci', [FibonacciController::class, 'showForm'])->name('fibonacci.form');
+    Route::post('/fibonacci', [FibonacciController::class, 'calculate'])->name('fibonacci');
+
+    Route::get('/prime', [PrimeController::class, 'showForm'])->name('prime.form');
+    Route::post('/prime', [PrimeController::class, 'calculate'])->name('prime');
 });
 
 Route::get('/about', function () {
     return view('page.about');
 });
-
-Route::get('home/even_odd', [EvenOddController::class, 'showForm'])->name('even_odd.form');
-Route::post('home/even_odd', [EvenOddController::class, 'calculate'])->name('even_odd');
-
-Route::get('home/fibonacci', [FibonacciController::class, 'showForm'])->name('fibonacci.form');
-Route::post('home/fibonacci', [FibonacciController::class, 'calculate'])->name('fibonacci');
-
-Route::get('home/prime', [PrimeController::class, 'showForm'])->name('prime.form');
-Route::post('home/prime', [PrimeController::class, 'calculate'])->name('prime');
