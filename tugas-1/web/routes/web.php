@@ -9,6 +9,10 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
+Route::fallback(function () {
+    return response()->view('page.err.404', [], 404);
+});
+
 Route::get('/home', function () {
     return view('page.home');
 });
