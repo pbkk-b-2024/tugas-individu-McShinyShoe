@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EvenOddController;
-use App\Http\Controllers\FibonacciController;
-use App\Http\Controllers\PrimeController;
+use App\Http\Controllers\ViewController;
+use App\Http\Controllers\EditController;
 
 Route::get('/', function () {
     return redirect('/home');
@@ -17,15 +16,15 @@ Route::prefix('/home')->group(function() {
     Route::get('/', function () {
         return view('template.home');
     });
-    Route::get('/view/{category}', function () {
-        return view('template.view');
-    });
+    Route::get('/view/{category}', [ViewController::class, 'index']);
     Route::get('/create/{category}', function () {
         return view('template.create');
     });
-    Route::get('/edit/{category}', function () {
-        return view('template.edit');
-    });
+
+    Route::get('/edit/{category}/{id}', [EditController::class, 'index']);
+    Route::put('/edit/{category}/{id}', [EditController::class, 'update']);
+    Route::delete('/edit/{category}/{id}', [EditController::class, 'destroy']);
+
 });
 
 Route::get('/about', function () {
