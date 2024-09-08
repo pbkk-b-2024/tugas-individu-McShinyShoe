@@ -1,7 +1,7 @@
 <!-- resources/views/home.blade.php -->
 @extends('layout.home')
 
-@section('title', 'Home')
+@section('title', 'Edit ' . old('title', $article->title))
 
 @section('content')
 <div class="container mt-5">
@@ -53,6 +53,6 @@
         <button type="submit" class="btn btn-danger rounded-pill" onclick="return confirm('Are you sure you want to delete this article?');">Delete</button>
     </form>
     <!-- Back button -->
-    <a href="/home/edit/{{ $category }}" class="btn btn-secondary rounded-pill mt-3">Back to Articles List</a>
+    <a href="/home/view/{{ $category }}" class="btn btn-secondary rounded-pill mt-3">Back to Articles List</a>
 </div>
 @endsection

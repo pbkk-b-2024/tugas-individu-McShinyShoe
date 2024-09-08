@@ -1,7 +1,7 @@
 <!-- resources/views/home.blade.php -->
 @extends('layout.home')
 
-@section('title', 'Home')
+@section('title', 'View ' . $category)
 
 @section('content')
 <div class="container-fluid py-5 px-3">
