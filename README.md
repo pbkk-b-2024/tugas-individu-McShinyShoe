@@ -8,9 +8,14 @@
 ### Requirement: 
 - Docker with compose plugin
 
+Before running and stopping, make sure to change your current directory to the assignment number directory. Subtitute `X` with the assignment number.
+```sh
+`cd tugas-X`
+```
+
 ### Running:
 ```sh
-sh tugas-X/run.sh
+sh run.sh
 ```
 
 ### Stopping:
