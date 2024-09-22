@@ -29,6 +29,9 @@
                 </div>
                 <button type="submit" class="btn btn-success w-100">Register</button>
             </form>
+            <div class="text-center mt-3">
+                <p>Already have an account? <a href="/login">Login</a></p>
+            </div>
         </div>
     </div>
 </div>
